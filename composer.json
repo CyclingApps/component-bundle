@@ -1,0 +1,57 @@
+{
+  "name": "cyclingapps/component-bundle",
+  "description": "This bundle provides reusable components and utilities for Symfony applications.",
+  "license": "MIT",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Damien LAGAE",
+      "email": "damienlagae@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.3",
+    "symfony/asset-mapper": "^7.3",
+    "symfony/ux-icons": "^2.30",
+    "symfony/ux-twig-component": "^2.30",
+    "twig/twig": "^3.0"
+  },
+  "require-dev": {
+    "ergebnis/composer-normalize": "^2.48",
+    "phpunit/phpunit": "^9.6",
+    "symfony/framework-bundle": "^7.3",
+    "symfony/phpunit-bridge": "^7.3"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "CyclingApps\\ComponentBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CyclingApps\\ComponentBundle\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "tools:run": [
+      "@tools:run:php-cs-fixer",
+      "@tools:run:phpstan"
+    ],
+    "tools:run:php-cs-fixer": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix",
+    "tools:run:phpstan": "tools/phpstan/vendor/bin/phpstan --memory-limit=1G",
+    "tools:upgrade": [
+      "@tools:upgrade:php-cs-fixer",
+      "@tools:upgrade:phpstan"
+    ],
+    "tools:upgrade:php-cs-fixer": "composer upgrade -W -d tools/php-cs-fixer",
+    "tools:upgrade:phpstan": "composer upgrade -W -d tools/phpstan"
+  }
+}
