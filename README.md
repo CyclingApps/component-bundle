@@ -4,7 +4,10 @@ This bundle provides reusable components and utilities for Symfony applications.
 
 ## Components
 
+- [FlashMessage](docs/FlashMessage/index.md) - A Bootstrap alert component for displaying flash messages
+- [LocaleSwitcher](docs/LocaleSwitcher/index.md) - A locale switcher dropdown for Bootstrap navbar
 
+For more details, see the [full documentation](docs/index.md).
 
 ## Installation
 

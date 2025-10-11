@@ -12,8 +12,10 @@
   "require": {
     "php": ">=8.3",
     "symfony/asset-mapper": "^7.3",
+    "symfony/options-resolver": "^7.3",
     "symfony/ux-icons": "^2.30",
     "symfony/ux-twig-component": "^2.30",
+    "twig/intl-extra": "^3.21",
     "twig/twig": "^3.0"
   },
   "require-dev": {
