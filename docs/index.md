@@ -8,8 +8,14 @@ https://github.com/CyclingApps/component-bundle
 
 ## Components
 
-- [FlashMessage](FlashMessage/index.md) - A Bootstrap alert component for displaying flash messages
-- [LocaleSwitcher](LocaleSwitcher/index.md) - A locale switcher dropdown for Bootstrap navbar
+- [Alert](Alert/alert.md) - A Bootstrap alert component for displaying messages
+- [Card](Card/card.md) - A Bootstrap card component for displaying content in a flexible and extensible container
+- [LocaleSwitcher](LocaleSwitcher/localeSwitcher.md) - A locale switcher dropdown for Bootstrap navbar
+- **Navbar Components** - Bootstrap navbar components for creating responsive navigation bars:
+  - [Navbar](Navbar/navbar.md) - Main navigation container with logo, name, and link configuration
+  - [Menu](Navbar/menu.md) - Menu container for organizing navigation items
+  - [MenuItem](Navbar/menuItem.md) - Individual navigation links or items
+- [Tab](Tab/tab.md) - A Bootstrap nav-tabs/nav-pills component for creating tabbed navigation with content panes
 
 ## Install
 

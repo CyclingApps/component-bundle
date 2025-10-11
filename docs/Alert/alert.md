@@ -1,6 +1,6 @@
 ## Description
 
-A Bootstrap alert component for displaying flash messages with customizable types and dismissible functionality.
+A Bootstrap alert component for displaying messages with customizable types and dismissible functionality.
 
 ## Parameters
 
@@ -15,7 +15,7 @@ A Bootstrap alert component for displaying flash messages with customizable type
 ### Basic usage
 
 ```twig
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'This is an info message'
 }) }}
 ```
@@ -23,7 +23,7 @@ A Bootstrap alert component for displaying flash messages with customizable type
 ### With custom type
 
 ```twig
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Operation completed successfully!',
     type: 'success'
 }) }}
@@ -32,7 +32,7 @@ A Bootstrap alert component for displaying flash messages with customizable type
 ### Dismissible alert
 
 ```twig
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'This message can be closed',
     type: 'warning',
     dismissible: true
@@ -42,42 +42,42 @@ A Bootstrap alert component for displaying flash messages with customizable type
 ### All available types
 
 ```twig
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Primary alert',
     type: 'primary'
 }) }}
 
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Secondary alert',
     type: 'secondary'
 }) }}
 
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Success alert',
     type: 'success'
 }) }}
 
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Danger alert',
     type: 'danger'
 }) }}
 
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Warning alert',
     type: 'warning'
 }) }}
 
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Info alert',
     type: 'info'
 }) }}
 
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Light alert',
     type: 'light'
 }) }}
 
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: 'Dark alert',
     type: 'dark'
 }) }}
@@ -88,7 +88,7 @@ A Bootstrap alert component for displaying flash messages with customizable type
 ```twig
 {% for type, messages in app.flashes %}
     {% for message in messages %}
-        {{ component('cyclingapps_flash_message', {
+        {{ component('cyclingapps_alert', {
             text: message,
             type: type,
             dismissible: true
@@ -100,7 +100,7 @@ A Bootstrap alert component for displaying flash messages with customizable type
 ## Example with HTML content
 
 ```twig
-{{ component('cyclingapps_flash_message', {
+{{ component('cyclingapps_alert', {
     text: '<strong>Important!</strong> Please read this message carefully.',
     type: 'danger',
     dismissible: true
@@ -112,7 +112,7 @@ A Bootstrap alert component for displaying flash messages with customizable type
 You can override the content block to customize the message display:
 
 ```twig
-{% component 'cyclingapps_flash_message' with {
+{% component 'cyclingapps_alert' with {
     type: 'info',
     dismissible: true
 } %}

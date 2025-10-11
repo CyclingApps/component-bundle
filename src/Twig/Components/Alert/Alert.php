@@ -7,14 +7,14 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Twig\Components;
+namespace CyclingApps\ComponentBundle\Twig\Components\Alert;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
 
-#[AsTwigComponent('cyclingapps_flash_message', template: '@CyclingAppsComponent/components/flash_message.html.twig')]
-class FlashMessage
+#[AsTwigComponent('cyclingapps_alert', template: '@CyclingAppsComponent/components/alert/alert.html.twig')]
+class Alert
 {
     public string $text;
     public string $type;

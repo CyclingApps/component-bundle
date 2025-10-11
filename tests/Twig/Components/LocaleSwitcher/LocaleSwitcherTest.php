@@ -7,9 +7,9 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Tests\Twig\Components;
+namespace CyclingApps\ComponentBundle\Tests\Twig\Components\LocaleSwitcher;
 
-use CyclingApps\ComponentBundle\Twig\Components\LocaleSwitcher;
+use CyclingApps\ComponentBundle\Twig\Components\LocaleSwitcher\LocaleSwitcher;
 use PHPUnit\Framework\TestCase;
 
 class LocaleSwitcherTest extends TestCase

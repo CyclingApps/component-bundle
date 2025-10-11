@@ -7,24 +7,24 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Tests\Twig\Components;
+namespace CyclingApps\ComponentBundle\Tests\Twig\Components\Alert;
 
-use CyclingApps\ComponentBundle\Twig\Components\FlashMessage;
+use CyclingApps\ComponentBundle\Twig\Components\Alert\Alert;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
 
-class FlashMessageTest extends TestCase
+class AlertTest extends TestCase
 {
     public function testComponentCanBeInstantiatedWithDefaultParameters(): void
     {
-        $component = new FlashMessage();
+        $component = new Alert();
         $data = $component->preMount(['text' => 'Test message']);
 
         $component->text = $data['text'];
         $component->type = $data['type'];
         $component->dismissible = $data['dismissible'];
 
-        $this->assertInstanceOf(FlashMessage::class, $component);
+        $this->assertInstanceOf(Alert::class, $component);
         $this->assertEquals('Test message', $component->text);
         $this->assertEquals('info', $component->type);
         $this->assertFalse($component->dismissible);
@@ -32,14 +32,14 @@ class FlashMessageTest extends TestCase
 
     public function testComponentCanBeInstantiatedWithCustomType(): void
     {
-        $component = new FlashMessage();
+        $component = new Alert();
         $data = $component->preMount(['text' => 'Success message', 'type' => 'success']);
 
         $component->text = $data['text'];
         $component->type = $data['type'];
         $component->dismissible = $data['dismissible'];
 
-        $this->assertInstanceOf(FlashMessage::class, $component);
+        $this->assertInstanceOf(Alert::class, $component);
         $this->assertEquals('Success message', $component->text);
         $this->assertEquals('success', $component->type);
         $this->assertFalse($component->dismissible);
@@ -47,14 +47,14 @@ class FlashMessageTest extends TestCase
 
     public function testComponentCanBeInstantiatedWithDismissibleSetToTrue(): void
     {
-        $component = new FlashMessage();
+        $component = new Alert();
         $data = $component->preMount(['text' => 'Warning message', 'type' => 'warning', 'dismissible' => true]);
 
         $component->text = $data['text'];
         $component->type = $data['type'];
         $component->dismissible = $data['dismissible'];
 
-        $this->assertInstanceOf(FlashMessage::class, $component);
+        $this->assertInstanceOf(Alert::class, $component);
         $this->assertEquals('Warning message', $component->text);
         $this->assertEquals('warning', $component->type);
         $this->assertTrue($component->dismissible);
@@ -65,7 +65,7 @@ class FlashMessageTest extends TestCase
         $types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
 
         foreach ($types as $type) {
-            $component = new FlashMessage();
+            $component = new Alert();
             $data = $component->preMount(['text' => 'Test', 'type' => $type]);
 
             $component->type = $data['type'];
@@ -78,7 +78,7 @@ class FlashMessageTest extends TestCase
     {
         $this->expectException(InvalidOptionsException::class);
 
-        $component = new FlashMessage();
+        $component = new Alert();
         $component->preMount(['text' => 'Test', 'type' => 'invalid']);
     }
 
@@ -86,7 +86,7 @@ class FlashMessageTest extends TestCase
     {
         $this->expectException(InvalidOptionsException::class);
 
-        $component = new FlashMessage();
+        $component = new Alert();
         $component->preMount(['text' => 123, 'type' => 'info']);
     }
 
@@ -94,13 +94,13 @@ class FlashMessageTest extends TestCase
     {
         $this->expectException(InvalidOptionsException::class);
 
-        $component = new FlashMessage();
+        $component = new Alert();
         $component->preMount(['text' => 'Test', 'dismissible' => 'yes']);
     }
 
     public function testComponentCanHandlePrimaryType(): void
     {
-        $component = new FlashMessage();
+        $component = new Alert();
         $data = $component->preMount(['text' => 'Primary alert', 'type' => 'primary']);
 
         $component->text = $data['text'];
@@ -113,7 +113,7 @@ class FlashMessageTest extends TestCase
 
     public function testComponentCanHandleDangerType(): void
     {
-        $component = new FlashMessage();
+        $component = new Alert();
         $data = $component->preMount(['text' => 'Error occurred', 'type' => 'danger', 'dismissible' => true]);
 
         $component->text = $data['text'];
@@ -127,7 +127,7 @@ class FlashMessageTest extends TestCase
 
     public function testPreMountReturnsArrayWithResolvedData(): void
     {
-        $component = new FlashMessage();
+        $component = new Alert();
         $result = $component->preMount(['text' => 'Test message', 'type' => 'success']);
 
         $this->assertIsArray($result);
@@ -141,7 +141,7 @@ class FlashMessageTest extends TestCase
 
     public function testPreMountPreservesAdditionalData(): void
     {
-        $component = new FlashMessage();
+        $component = new Alert();
         $result = $component->preMount(['text' => 'Test', 'custom_attribute' => 'value']);
 
         $this->assertArrayHasKey('custom_attribute', $result);

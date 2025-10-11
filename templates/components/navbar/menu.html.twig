@@ -1,0 +1,8 @@
+{# Menu component #}
+{% set directionClass = direction == 'vertical' ? 'flex-column' : '' %}
+{% set alignClass = align == 'center' ? 'justify-content-center' : (align == 'end' ? 'justify-content-end' : '') %}
+
+<ul class="navbar-nav {{ directionClass }} {{ alignClass }} {{ attributes.render('class') }}" {{ attributes.defaults({}) }}>
+    {% block content %}
+    {% endblock %}
+</ul>

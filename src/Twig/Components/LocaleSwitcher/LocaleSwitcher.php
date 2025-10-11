@@ -7,11 +7,11 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Twig\Components;
+namespace CyclingApps\ComponentBundle\Twig\Components\LocaleSwitcher;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent('cyclingapps_locale_switcher', template: '@CyclingAppsComponent/components/locale_switcher.html.twig')]
+#[AsTwigComponent('cyclingapps_locale_switcher', template: '@CyclingAppsComponent/components/locale_switcher/locale_switcher.html.twig')]
 class LocaleSwitcher
 {
     /**
