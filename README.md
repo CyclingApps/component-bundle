@@ -11,7 +11,7 @@ This bundle provides reusable components and utilities for Symfony applications.
 Install the bundle using composer:
 
 ``` bash
-composer require enabel/ux
+composer require cyclingapps/component-bundle
 ```
 
 ## Credits
