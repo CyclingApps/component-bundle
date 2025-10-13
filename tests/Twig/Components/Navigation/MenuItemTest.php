@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Tests\Twig\Components\Navbar;
+namespace CyclingApps\ComponentBundle\Tests\Twig\Components\Navigation;
 
 use CyclingApps\ComponentBundle\Twig\Components\Navigation\MenuItem;
 use PHPUnit\Framework\TestCase;

@@ -11,10 +11,9 @@ A menu container component for organizing navigation items within a Bootstrap na
 
 ## Parameters
 
-| Parameter   | Type     | Description                                        | Default      |
-|:------------|:---------|:---------------------------------------------------|:-------------|
-| `align`     | `string` | Menu alignment (start, center, end)               | `start`      |
-| `direction` | `string` | Menu direction (horizontal, vertical)             | `horizontal` |
+| Parameter   | Type     | Description                          | Default      |
+|:------------|:---------|:-------------------------------------|:-------------|
+| `align`     | `string` | Menu alignment (start, center, end)  | `start`      |
 
 ## Usage
 
@@ -23,17 +22,17 @@ A menu container component for organizing navigation items within a Bootstrap na
 This example shows a Menu nested inside a Navbar with MenuItem components:
 
 ```twig
-{% component 'cyclingapps_navbar' with { name: 'My App' } %}
+{% component 'CyclingApps:Navigation:Navbar' with { name: 'My App' } %}
     {% block content %}
         {# Menu component nested inside Navbar #}
-        {% component 'cyclingapps_menu' %}
+        {% component 'CyclingApps:Navigation:Menu' %}
             {% block content %}
                 {# MenuItem components nested inside Menu #}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Home',
                     link: '/'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'About',
                     link: '/about'
                 }) }}
@@ -46,15 +45,15 @@ This example shows a Menu nested inside a Navbar with MenuItem components:
 ### Centered menu
 
 ```twig
-{% component 'cyclingapps_navbar' with { name: 'My App' } %}
+{% component 'CyclingApps:Navigation:Navbar' with { name: 'My App' } %}
     {% block content %}
-        {% component 'cyclingapps_menu' with { align: 'center' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'center' } %}
             {% block content %}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Home',
                     link: '/'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'About',
                     link: '/about'
                 }) }}
@@ -67,38 +66,17 @@ This example shows a Menu nested inside a Navbar with MenuItem components:
 ### Right-aligned menu
 
 ```twig
-{% component 'cyclingapps_navbar' with { name: 'My App' } %}
+{% component 'CyclingApps:Navigation:Navbar' with { name: 'My App' } %}
     {% block content %}
-        {% component 'cyclingapps_menu' with { align: 'end' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'end' } %}
             {% block content %}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Login',
                     link: '/login'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Register',
                     link: '/register'
-                }) }}
-            {% endblock %}
-        {% endcomponent %}
-    {% endblock %}
-{% endcomponent %}
-```
-
-### Vertical menu
-
-```twig
-{% component 'cyclingapps_navbar' with { name: 'My App' } %}
-    {% block content %}
-        {% component 'cyclingapps_menu' with { direction: 'vertical' } %}
-            {% block content %}
-                {{ component('cyclingapps_menu_item', {
-                    label: 'Home',
-                    link: '/'
-                }) }}
-                {{ component('cyclingapps_menu_item', {
-                    label: 'About',
-                    link: '/about'
                 }) }}
             {% endblock %}
         {% endcomponent %}
@@ -111,25 +89,25 @@ This example shows a Menu nested inside a Navbar with MenuItem components:
 You can have multiple Menu components in a single Navbar (e.g., left and right aligned):
 
 ```twig
-{% component 'cyclingapps_navbar' with {
+{% component 'CyclingApps:Navigation:Navbar' with {
     name: 'My Application',
     logo: '/images/logo.png'
 } %}
     {% block content %}
         {# Left-aligned menu #}
-        {% component 'cyclingapps_menu' with { align: 'start' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'start' } %}
             {% block content %}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Home',
                     link: '/',
                     icon: 'bi:house'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Products',
                     link: '/products',
                     icon: 'bi:bag'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'About',
                     link: '/about',
                     icon: 'bi:info-circle'
@@ -138,9 +116,9 @@ You can have multiple Menu components in a single Navbar (e.g., left and right a
         {% endcomponent %}
 
         {# Right-aligned menu #}
-        {% component 'cyclingapps_menu' with { align: 'end' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'end' } %}
             {% block content %}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Login',
                     link: '/login',
                     icon: 'bi:box-arrow-in-right'
@@ -156,7 +134,7 @@ You can have multiple Menu components in a single Navbar (e.g., left and right a
 Here's a complete example showing a navbar with multiple menus containing different types of menu items:
 
 ```twig
-{% component 'cyclingapps_navbar' with {
+{% component 'CyclingApps:Navigation:Navbar' with {
     logo: '/images/logo.png',
     name: 'CyclingApps',
     link: '/',
@@ -165,19 +143,19 @@ Here's a complete example showing a navbar with multiple menus containing differ
 } %}
     {% block content %}
         {# Primary navigation menu - left aligned #}
-        {% component 'cyclingapps_menu' with { align: 'start' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'start' } %}
             {% block content %}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Home',
                     link: '/',
                     icon: 'bi:house'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Rides',
                     link: '/rides',
                     icon: 'bi:bicycle'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Profile',
                     link: '/profile',
                     icon: 'bi:person'
@@ -186,10 +164,10 @@ Here's a complete example showing a navbar with multiple menus containing differ
         {% endcomponent %}
 
         {# User menu - right aligned with dropdown #}
-        {% component 'cyclingapps_menu' with { align: 'end' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'end' } %}
             {% block content %}
                 {% if app.user %}
-                    {{ component('cyclingapps_menu_item', {
+                    {{ component('CyclingApps:Navigation:MenuItem', {
                         label: app.user.username,
                         icon: 'bi:person-circle',
                         isDropdown: true,
@@ -201,7 +179,7 @@ Here's a complete example showing a navbar with multiple menus containing differ
                         ]
                     }) }}
                 {% else %}
-                    {{ component('cyclingapps_menu_item', {
+                    {{ component('CyclingApps:Navigation:MenuItem', {
                         label: 'Login',
                         link: '/login',
                         icon: 'bi:box-arrow-in-right'

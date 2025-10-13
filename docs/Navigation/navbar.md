@@ -26,7 +26,7 @@ The main navigation container component for creating responsive Bootstrap naviga
 ### Basic navbar
 
 ```twig
-{{ component('cyclingapps_navbar', {
+{{ component('CyclingApps:Navigation:Navbar', {
     name: 'My Application'
 }) }}
 ```
@@ -34,7 +34,7 @@ The main navigation container component for creating responsive Bootstrap naviga
 ### Navbar with logo
 
 ```twig
-{{ component('cyclingapps_navbar', {
+{{ component('CyclingApps:Navigation:Navbar', {
     logo: '/images/logo.png',
     name: 'My Application',
     link: '/home'
@@ -44,7 +44,7 @@ The main navigation container component for creating responsive Bootstrap naviga
 ### Dark navbar
 
 ```twig
-{{ component('cyclingapps_navbar', {
+{{ component('CyclingApps:Navigation:Navbar', {
     name: 'My Application',
     theme: 'dark'
 }) }}
@@ -53,7 +53,7 @@ The main navigation container component for creating responsive Bootstrap naviga
 ### Fixed navbar
 
 ```twig
-{{ component('cyclingapps_navbar', {
+{{ component('CyclingApps:Navigation:Navbar', {
     name: 'My Application',
     fixed: true,
     fixedPosition: 'top'
@@ -63,7 +63,7 @@ The main navigation container component for creating responsive Bootstrap naviga
 ### Navbar with custom expand breakpoint
 
 ```twig
-{{ component('cyclingapps_navbar', {
+{{ component('CyclingApps:Navigation:Navbar', {
     name: 'My Application',
     expand: 'md'
 }) }}
@@ -74,7 +74,7 @@ The main navigation container component for creating responsive Bootstrap naviga
 This example shows how to nest Menu components (which contain MenuItem components) inside the Navbar:
 
 ```twig
-{% component 'cyclingapps_navbar' with {
+{% component 'CyclingApps:Navigation:Navbar' with {
     logo: '/images/logo.png',
     name: 'My Application',
     link: '/',
@@ -83,19 +83,19 @@ This example shows how to nest Menu components (which contain MenuItem component
 } %}
     {% block content %}
         {# Menu component is nested inside Navbar #}
-        {% component 'cyclingapps_menu' %}
+        {% component 'CyclingApps:Navigation:Menu' %}
             {% block content %}
                 {# MenuItem components are nested inside Menu #}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Home',
                     link: '/',
                     active: true
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'About',
                     link: '/about'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Contact',
                     link: '/contact'
                 }) }}
@@ -110,7 +110,7 @@ This example shows how to nest Menu components (which contain MenuItem component
 Here's a complete example with multiple menus (left and right aligned) showing the full nesting structure:
 
 ```twig
-{% component 'cyclingapps_navbar' with {
+{% component 'CyclingApps:Navigation:Navbar' with {
     logo: '/images/logo.png',
     name: 'CyclingApps',
     link: '/',
@@ -121,19 +121,19 @@ Here's a complete example with multiple menus (left and right aligned) showing t
 } %}
     {% block content %}
         {# Left-aligned menu with navigation items #}
-        {% component 'cyclingapps_menu' with { align: 'start' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'start' } %}
             {% block content %}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Home',
                     link: '/',
                     icon: 'bi:house'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Rides',
                     link: '/rides',
                     icon: 'bi:bicycle'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Profile',
                     link: '/profile',
                     icon: 'bi:person'
@@ -142,10 +142,10 @@ Here's a complete example with multiple menus (left and right aligned) showing t
         {% endcomponent %}
 
         {# Right-aligned menu with user dropdown #}
-        {% component 'cyclingapps_menu' with { align: 'end' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'end' } %}
             {% block content %}
                 {% if app.user %}
-                    {{ component('cyclingapps_menu_item', {
+                    {{ component('CyclingApps:Navigation:MenuItem', {
                         label: app.user.username,
                         icon: 'bi:person-circle',
                         isDropdown: true,
@@ -157,7 +157,7 @@ Here's a complete example with multiple menus (left and right aligned) showing t
                         ]
                     }) }}
                 {% else %}
-                    {{ component('cyclingapps_menu_item', {
+                    {{ component('CyclingApps:Navigation:MenuItem', {
                         label: 'Login',
                         link: '/login',
                         icon: 'bi:box-arrow-in-right'
@@ -176,7 +176,7 @@ Here's a complete example with multiple menus (left and right aligned) showing t
 You can override the brand block to customize the logo and name display:
 
 ```twig
-{% component 'cyclingapps_navbar' %}
+{% component 'CyclingApps:Navigation:Navbar' %}
     {% block brand %}
         <a class="navbar-brand" href="/">
             <img src="/logo.png" alt="Logo" height="40">

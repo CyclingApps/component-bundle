@@ -37,12 +37,12 @@ The MenuItem component automatically detects whether it should be marked as acti
 
 ```twig
 {# These items will automatically be marked as active when on their respective pages #}
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Home',
     link: '/'
 }) }}
 
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Products',
     link: '/products'
 }) }}
@@ -56,14 +56,14 @@ You can still manually control the active state when needed:
 
 ```twig
 {# Force active even if not on this route #}
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Home',
     link: '/',
     active: true
 }) }}
 
 {# Force inactive even if on this route #}
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'About',
     link: '/about',
     active: false
@@ -77,12 +77,12 @@ You can still manually control the active state when needed:
 MenuItem components must be nested inside a Menu component, which itself is nested inside a Navbar:
 
 ```twig
-{% component 'cyclingapps_navbar' with { name: 'My App' } %}
+{% component 'CyclingApps:Navigation:Navbar' with { name: 'My App' } %}
     {% block content %}
-        {% component 'cyclingapps_menu' %}
+        {% component 'CyclingApps:Navigation:Menu' %}
             {% block content %}
                 {# Basic MenuItem nested inside Menu #}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Home',
                     link: '/'
                 }) }}
@@ -95,7 +95,7 @@ MenuItem components must be nested inside a Menu component, which itself is nest
 ### Active menu item
 
 ```twig
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Current Page',
     link: '/current',
     active: true
@@ -105,7 +105,7 @@ MenuItem components must be nested inside a Menu component, which itself is nest
 ### Disabled menu item
 
 ```twig
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Coming Soon',
     link: '/soon',
     disabled: true
@@ -115,7 +115,7 @@ MenuItem components must be nested inside a Menu component, which itself is nest
 ### Menu item without link
 
 ```twig
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Text Only'
 }) }}
 ```
@@ -125,13 +125,13 @@ MenuItem components must be nested inside a Menu component, which itself is nest
 Menu items support icons using Symfony UX Icons:
 
 ```twig
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Home',
     link: '/',
     icon: 'bi:house'
 }) }}
 
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Settings',
     link: '/settings',
     icon: 'bi:gear'
@@ -143,7 +143,7 @@ Menu items support icons using Symfony UX Icons:
 Menu items can be configured as dropdowns with nested items:
 
 ```twig
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Account',
     icon: 'bi:person-circle',
     isDropdown: true,
@@ -161,7 +161,7 @@ Menu items can be configured as dropdowns with nested items:
 Dropdown items support headers and dividers for better organization:
 
 ```twig
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'More',
     isDropdown: true,
     dropdownItems: [
@@ -180,7 +180,7 @@ Dropdown items support headers and dividers for better organization:
 Dropdown items can have active and disabled states (active state is also auto-detected for dropdown items):
 
 ```twig
-{{ component('cyclingapps_menu_item', {
+{{ component('CyclingApps:Navigation:MenuItem', {
     label: 'Options',
     isDropdown: true,
     dropdownItems: [
@@ -196,7 +196,7 @@ Dropdown items can have active and disabled states (active state is also auto-de
 Here's a complete example showing MenuItem components with all features in a complete nesting structure:
 
 ```twig
-{% component 'cyclingapps_navbar' with {
+{% component 'CyclingApps:Navigation:Navbar' with {
     logo: '/images/logo.png',
     name: 'CyclingApps',
     link: '/',
@@ -205,19 +205,19 @@ Here's a complete example showing MenuItem components with all features in a com
 } %}
     {% block content %}
         {# Left-aligned menu with basic items (auto-active detection) #}
-        {% component 'cyclingapps_menu' with { align: 'start' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'start' } %}
             {% block content %}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Home',
                     link: '/',
                     icon: 'bi:house'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Rides',
                     link: '/rides',
                     icon: 'bi:bicycle'
                 }) }}
-                {{ component('cyclingapps_menu_item', {
+                {{ component('CyclingApps:Navigation:MenuItem', {
                     label: 'Profile',
                     link: '/profile',
                     icon: 'bi:person'
@@ -226,28 +226,20 @@ Here's a complete example showing MenuItem components with all features in a com
         {% endcomponent %}
 
         {# Right-aligned menu with dropdown item #}
-        {% component 'cyclingapps_menu' with { align: 'end' } %}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'end' } %}
             {% block content %}
-                {% if app.user %}
-                    {# Dropdown MenuItem with nested dropdown items #}
-                    {{ component('cyclingapps_menu_item', {
-                        label: app.user.username,
-                        icon: 'bi:person-circle',
-                        isDropdown: true,
-                        dropdownItems: [
-                            {label: 'My Account', link: '/account', icon: 'bi:person'},
-                            {label: 'Settings', link: '/settings', icon: 'bi:gear'},
-                            {divider: true},
-                            {label: 'Logout', link: '/logout', icon: 'bi:box-arrow-right'}
-                        ]
-                    }) }}
-                {% else %}
-                    {{ component('cyclingapps_menu_item', {
-                        label: 'Login',
-                        link: '/login',
-                        icon: 'bi:box-arrow-in-right'
-                    }) }}
-                {% endif %}
+                {# Dropdown MenuItem with nested dropdown items #}
+                {{ component('CyclingApps:Navigation:MenuItem', {
+                    label: 'John Doe',
+                    icon: 'bi:person-circle',
+                    isDropdown: true,
+                    dropdownItems: [
+                        {label: 'My Account', link: '/account', icon: 'bi:person'},
+                        {label: 'Settings', link: '/settings', icon: 'bi:gear'},
+                        {divider: true},
+                        {label: 'Logout', link: '/logout', icon: 'bi:box-arrow-right'}
+                    ]
+                }) }}
             {% endblock %}
         {% endcomponent %}
     {% endblock %}
@@ -261,7 +253,7 @@ Here's a complete example showing MenuItem components with all features in a com
 You can override the content block of a menu item for complete customization:
 
 ```twig
-{% component 'cyclingapps_menu_item' with { link: '/profile' } %}
+{% component 'CyclingApps:Navigation:MenuItem' with { link: '/profile' } %}
     {% block content %}
         <a class="nav-link" href="/profile">
             <i class="bi bi-person"></i> Profile

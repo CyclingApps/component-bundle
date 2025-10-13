@@ -22,7 +22,7 @@ cycling_apps_component:
 ## Usage
 
 ```twig
-{{ component('cyclingapps_locale_switcher') }}
+{{ component('CyclingApps:LocaleSwitcher') }}
 ```
 
 ## Example in a Bootstrap navbar
@@ -39,9 +39,40 @@ cycling_apps_component:
                 ...
             </ul>
             <div class="d-flex align-items-end me-3">
-                {{ component('cyclingapps_locale_switcher') }}                
+                {{ component('CyclingApps:LocaleSwitcher') }}                
             </div>
         </div>
     </div>
 </nav>
+```
+
+## Example in a CyclingApps:Navbar with CyclingApps:Menu & CyclingApps:MenuItem components
+```twig
+{% component 'CyclingApps:Navigation:Navbar' with {
+    name: 'CyclingApps',
+    link: '/'
+} %}
+    {% block content %}
+        {# Left-aligned menu with navigation items #}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'start' } %}
+            {% block content %}
+                {{ component('CyclingApps:Navigation:MenuItem', {
+                    label: 'Home',
+                    link: '/',
+                }) }}
+                ...
+            {% endblock %}
+        {% endcomponent %}
+
+        {# Right-aligned menu with user dropdown #}
+        {% component 'CyclingApps:Navigation:Menu' with { align: 'end' } %}
+            {% block content %}
+                {{ component('CyclingApps:LocaleSwitcher', {
+                    'locales': ['fr', 'en', 'es']
+                }) }}
+                Other menu items...
+            {% endblock %}
+        {% endcomponent %}
+    {% endblock %}
+{% endcomponent %}
 ```

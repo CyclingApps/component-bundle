@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Tests\Twig\Components\Tab;
+namespace CyclingApps\ComponentBundle\Tests\Twig\Components\Navigation;
 
 use CyclingApps\ComponentBundle\Twig\Components\Navigation\Tab;
 use PHPUnit\Framework\TestCase;
@@ -39,8 +39,8 @@ class TabTest extends TestCase
     public function testComponentCanBeInstantiatedWithTabs(): void
     {
         $tabs = [
-            ['id' => 'home', 'label' => 'Home', 'content' => 'Home content'],
-            ['id' => 'profile', 'label' => 'Profile', 'content' => 'Profile content'],
+            ['id' => 'home', 'label' => 'Home', 'link' => '/home'],
+            ['id' => 'profile', 'label' => 'Profile', 'link' => '/profile'],
         ];
 
         $component = new Tab();
@@ -175,15 +175,16 @@ class TabTest extends TestCase
     public function testComponentCanHandleComplexConfiguration(): void
     {
         $tabs = [
-            ['id' => 'tab1', 'label' => 'Tab 1', 'content' => 'Content 1'],
-            ['id' => 'tab2', 'label' => 'Tab 2', 'content' => 'Content 2'],
-            ['id' => 'tab3', 'label' => 'Tab 3', 'content' => 'Content 3'],
+            ['id' => 'tab1', 'label' => 'Tab 1', 'link' => '/content1'],
+            ['id' => 'tab2', 'label' => 'Tab 2', 'link' => '/content2'],
+            ['id' => 'tab3', 'label' => 'Tab 3', 'link' => '/content3'],
         ];
 
         $component = new Tab();
         $data = $component->preMount([
             'tabs' => $tabs,
             'activeTab' => 'tab2',
+            'activeContent' => '<p>Content for Tab 2</p>',
             'variant' => 'pills',
             'fill' => true,
             'alignment' => 'center',
@@ -191,6 +192,7 @@ class TabTest extends TestCase
 
         $component->tabs = $data['tabs'];
         $component->activeTab = $data['activeTab'];
+        $component->activeContent = $data['activeContent'];
         $component->variant = $data['variant'];
         $component->fill = $data['fill'];
         $component->justified = $data['justified'];
@@ -198,6 +200,7 @@ class TabTest extends TestCase
 
         $this->assertEquals($tabs, $component->tabs);
         $this->assertEquals('tab2', $component->activeTab);
+        $this->assertEquals('<p>Content for Tab 2</p>', $component->activeContent);
         $this->assertEquals('pills', $component->variant);
         $this->assertTrue($component->fill);
         $this->assertFalse($component->justified);

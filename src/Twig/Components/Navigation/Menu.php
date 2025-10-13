@@ -15,7 +15,6 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 class Menu
 {
     public string $align;
-    public string $direction;
 
     /**
      * @param array<string, mixed> $data
@@ -36,13 +35,10 @@ class Menu
         $resolver->setIgnoreUndefined();
         $resolver->setDefaults([
             'align' => 'start',
-            'direction' => 'horizontal',
         ]);
 
         $resolver->setAllowedTypes('align', 'string');
-        $resolver->setAllowedTypes('direction', 'string');
 
         $resolver->setAllowedValues('align', ['start', 'center', 'end']);
-        $resolver->setAllowedValues('direction', ['horizontal', 'vertical']);
     }
 }
