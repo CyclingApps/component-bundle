@@ -18,6 +18,10 @@ return static function (ContainerConfigurator $container): void {
         ->autowire()
         ->autoconfigure();
 
+    $services->load('CyclingApps\\ComponentBundle\\Twig\\Components\\', '../src/Twig/Components/*')
+        ->tag('twig.component')
+        ->public();
+
     $services->set(LocaleSwitcher::class)
         ->arg('$locales', param('cycling_apps_component.locale_switcher.locales'))
         ->arg('$showLocaleName', param('cycling_apps_component.locale_switcher.show_locale_name'));
