@@ -9,7 +9,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use CyclingApps\ComponentBundle\Twig\Components\LocaleSwitcher;
+use CyclingApps\ComponentBundle\Twig\Components\LocaleSwitcher\LocaleSwitcher;
 
 return static function (ContainerConfigurator $container): void {
     $services = $container->services();
