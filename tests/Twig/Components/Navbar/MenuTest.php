@@ -9,7 +9,7 @@
 
 namespace CyclingApps\ComponentBundle\Tests\Twig\Components\Navbar;
 
-use CyclingApps\ComponentBundle\Twig\Components\Navbar\Menu;
+use CyclingApps\ComponentBundle\Twig\Components\Navigation\Menu;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
 

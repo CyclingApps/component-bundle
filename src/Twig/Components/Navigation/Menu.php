@@ -7,13 +7,11 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Twig\Components\Navbar;
+namespace CyclingApps\ComponentBundle\Twig\Components\Navigation;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
 
-#[AsTwigComponent('cyclingapps_menu', template: '@CyclingAppsComponent/components/navbar/menu.html.twig')]
 class Menu
 {
     public string $align;

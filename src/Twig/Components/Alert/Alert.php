@@ -10,10 +10,8 @@
 namespace CyclingApps\ComponentBundle\Twig\Components\Alert;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
 
-#[AsTwigComponent('cyclingapps_alert', template: '@CyclingAppsComponent/components/alert/alert.html.twig')]
 class Alert
 {
     public string $text;

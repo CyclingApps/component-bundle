@@ -15,6 +15,7 @@
     "symfony/options-resolver": "^7.3",
     "symfony/ux-icons": "^2.30",
     "symfony/ux-twig-component": "^2.30",
+    "symfony/yaml": "^7.3",
     "twig/intl-extra": "^3.21",
     "twig/twig": "^3.0"
   },

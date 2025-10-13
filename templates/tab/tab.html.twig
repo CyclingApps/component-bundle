@@ -10,8 +10,8 @@
             {% set isActive = activeTab is not null and activeTab == tab.id %}
             <li class="nav-item">
                 <a class="nav-link{% if isActive %} active{% endif %}" 
-                   {% if tab.link is defined %}href="{{ tab.link }}"{% endif %}
-                   {% if tab.id is defined %}id="{{ tab.id }}"{% endif %}
+                   {% if tab.link is defined %}href="{{ tab.link }}"{% else %}data-bs-toggle="tab"{% endif %}
+                   {% if tab.id is defined %}id="{{ tab.id }}" data-bs-target="#{{ tab.id }}-pane"{% endif %}
                    {% if isActive %}aria-current="page"{% endif %}>
                     {{ tab.label }}
                 </a>

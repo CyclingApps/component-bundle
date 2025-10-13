@@ -9,9 +9,6 @@
 
 namespace CyclingApps\ComponentBundle\Twig\Components\LocaleSwitcher;
 
-use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
-
-#[AsTwigComponent('cyclingapps_locale_switcher', template: '@CyclingAppsComponent/components/locale_switcher/locale_switcher.html.twig')]
 class LocaleSwitcher
 {
     /**

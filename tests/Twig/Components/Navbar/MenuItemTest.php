@@ -9,7 +9,7 @@
 
 namespace CyclingApps\ComponentBundle\Tests\Twig\Components\Navbar;
 
-use CyclingApps\ComponentBundle\Twig\Components\Navbar\MenuItem;
+use CyclingApps\ComponentBundle\Twig\Components\Navigation\MenuItem;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;

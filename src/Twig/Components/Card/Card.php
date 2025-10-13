@@ -10,10 +10,8 @@
 namespace CyclingApps\ComponentBundle\Twig\Components\Card;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
 
-#[AsTwigComponent('cyclingapps_card', template: '@CyclingAppsComponent/components/card/card.html.twig')]
 class Card
 {
     public ?string $title;

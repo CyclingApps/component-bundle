@@ -1,0 +1,46 @@
+# This file is part of the CyclingApps package.
+# Copyright (c) CyclingApps <https://github.com/CyclingApps>
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    CyclingApps\ComponentBundle\Twig\Components\:
+        resource: '../src/Twig/Components/*'
+        public: true
+
+    CyclingApps\ComponentBundle\Twig\Components\LocaleSwitcher\LocaleSwitcher:
+        arguments:
+            $locales: '%cycling_apps_component.locale_switcher.locales%'
+            $showLocaleName: '%cycling_apps_component.locale_switcher.show_locale_name%'
+        tags:
+          - { name: 'twig.component', key: 'CyclingApps:LocaleSwitcher', template: '@CyclingAppsComponent/locale_switcher/locale_switcher.html.twig', expose_public_props: true }
+
+
+    CyclingApps\ComponentBundle\Twig\Components\Alert\Alert:
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Alert', template: '@CyclingAppsComponent/alert/alert.html.twig', expose_public_props: true }
+
+    CyclingApps\ComponentBundle\Twig\Components\Card\Card:
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Card', template: '@CyclingAppsComponent/card/card.html.twig', expose_public_props: true }
+
+    CyclingApps\ComponentBundle\Twig\Components\Navigation\Navbar:
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Navigation:Navbar', template: '@CyclingAppsComponent/navigation/navbar.html.twig', expose_public_props: true }
+
+    CyclingApps\ComponentBundle\Twig\Components\Navigation\Menu:
+      public: true
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Navigation:Menu', template: '@CyclingAppsComponent/navigation/menu.html.twig', expose_public_props: true }
+
+    CyclingApps\ComponentBundle\Twig\Components\Navigation\MenuItem:
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Navigation:MenuItem', template: '@CyclingAppsComponent/navigation/menu_item.html.twig', expose_public_props: true }
+
+    CyclingApps\ComponentBundle\Twig\Components\Tab\Tab:
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Tab', template: '@CyclingAppsComponent/tab/tab.html.twig', expose_public_props: true }

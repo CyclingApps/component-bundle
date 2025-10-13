@@ -7,14 +7,12 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Twig\Components\Navbar;
+namespace CyclingApps\ComponentBundle\Twig\Components\Navigation;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
 
-#[AsTwigComponent('cyclingapps_menu_item', template: '@CyclingAppsComponent/components/navbar/menu_item.html.twig')]
 class MenuItem
 {
     public string $label;
