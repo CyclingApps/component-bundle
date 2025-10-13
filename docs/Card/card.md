@@ -4,18 +4,18 @@ A Bootstrap card component for displaying content in a flexible and extensible c
 
 ## Parameters
 
-| Parameter       | Type     | Description                                                    | Default        |
-|:----------------|:---------|:---------------------------------------------------------------|:---------------|
-| `title`         | `string` | The card title displayed in the body                           | `null`         |
-| `subtitle`      | `string` | The card subtitle displayed below the title                    | `null`         |
-| `text`          | `string` | The card text content (can contain HTML)                       | `null`         |
-| `image`         | `string` | URL of the image to display                                    | `null`         |
-| `imageAlt`      | `string` | Alternative text for the image                                 | `''`           |
-| `imagePosition` | `string` | Position of the image: `top` or `bottom`                       | `top`          |
-| `header`        | `string` | Text or HTML content for the card header                       | `null`         |
-| `footer`        | `string` | Text or HTML content for the card footer                       | `null`         |
-| `link`          | `string` | URL for the call-to-action button                              | `null`         |
-| `linkText`      | `string` | Text for the call-to-action button                             | `Go somewhere` |
+| Parameter       | Type     | Description                                 | Default        |
+|:----------------|:---------|:--------------------------------------------|:---------------|
+| `title`         | `string` | The card title displayed in the body        | `null`         |
+| `subtitle`      | `string` | The card subtitle displayed below the title | `null`         |
+| `text`          | `string` | The card text content (can contain HTML)    | `null`         |
+| `image`         | `string` | URL of the image to display                 | `null`         |
+| `imageAlt`      | `string` | Alternative text for the image              | `''`           |
+| `imagePosition` | `string` | Position of the image: `top` or `bottom`    | `top`          |
+| `header`        | `string` | Text or HTML content for the card header    | `null`         |
+| `footer`        | `string` | Text or HTML content for the card footer    | `null`         |
+| `link`          | `string` | URL for the call-to-action button           | `null`         |
+| `linkText`      | `string` | Text for the call-to-action button          | `Go somewhere` |
 
 ## Usage
 

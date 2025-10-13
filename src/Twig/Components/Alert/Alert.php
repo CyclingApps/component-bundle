@@ -14,7 +14,7 @@ use Symfony\UX\TwigComponent\Attribute\PreMount;
 
 class Alert
 {
-    public string $text;
+    public ?string $text;
     public string $type;
     public bool $dismissible;
 
@@ -37,7 +37,7 @@ class Alert
         $resolver->setIgnoreUndefined();
         $resolver->setDefaults(['text' => null, 'type' => 'info', 'dismissible' => false]);
 
-        $resolver->setAllowedTypes('text', 'string');
+        $resolver->setAllowedTypes('text', ['string', 'null']);
         $resolver->setAllowedTypes('type', 'string');
         $resolver->setAllowedTypes('dismissible', 'bool');
 

@@ -4,18 +4,18 @@ A Bootstrap alert component for displaying messages with customizable types and 
 
 ## Parameters
 
-| Parameter     | Type     | Description                                                                 | Default |
-|:--------------|:---------|:----------------------------------------------------------------------------|:--------|
-| `text`        | `string` | The message text to display (can contain HTML)                             | `null`  |
+| Parameter     | Type     | Description                                                                      | Default |
+|:--------------|:---------|:---------------------------------------------------------------------------------|:--------|
+| `text`        | `string` | The message text to display (can contain HTML)                                   | `null`  |
 | `type`        | `string` | The alert type (primary, secondary, success, danger, warning, info, light, dark) | `info`  |
-| `dismissible` | `bool`   | Whether the alert can be dismissed by the user                             | `false` |
+| `dismissible` | `bool`   | Whether the alert can be dismissed by the user                                   | `false` |
 
 ## Usage
 
 ### Basic usage
 
 ```twig
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'This is an info message'
 }) }}
 ```
@@ -23,7 +23,7 @@ A Bootstrap alert component for displaying messages with customizable types and 
 ### With custom type
 
 ```twig
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Operation completed successfully!',
     type: 'success'
 }) }}
@@ -32,7 +32,7 @@ A Bootstrap alert component for displaying messages with customizable types and 
 ### Dismissible alert
 
 ```twig
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'This message can be closed',
     type: 'warning',
     dismissible: true
@@ -42,42 +42,42 @@ A Bootstrap alert component for displaying messages with customizable types and 
 ### All available types
 
 ```twig
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Primary alert',
     type: 'primary'
 }) }}
 
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Secondary alert',
     type: 'secondary'
 }) }}
 
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Success alert',
     type: 'success'
 }) }}
 
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Danger alert',
     type: 'danger'
 }) }}
 
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Warning alert',
     type: 'warning'
 }) }}
 
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Info alert',
     type: 'info'
 }) }}
 
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Light alert',
     type: 'light'
 }) }}
 
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: 'Dark alert',
     type: 'dark'
 }) }}
@@ -88,7 +88,7 @@ A Bootstrap alert component for displaying messages with customizable types and 
 ```twig
 {% for type, messages in app.flashes %}
     {% for message in messages %}
-        {{ component('cyclingapps_alert', {
+        {{ component('CyclingApps:Alert', {
             text: message,
             type: type,
             dismissible: true
@@ -100,7 +100,7 @@ A Bootstrap alert component for displaying messages with customizable types and 
 ## Example with HTML content
 
 ```twig
-{{ component('cyclingapps_alert', {
+{{ component('CyclingApps:Alert', {
     text: '<strong>Important!</strong> Please read this message carefully.',
     type: 'danger',
     dismissible: true
@@ -112,7 +112,7 @@ A Bootstrap alert component for displaying messages with customizable types and 
 You can override the content block to customize the message display:
 
 ```twig
-{% component 'cyclingapps_alert' with {
+{% component 'CyclingApps:Alert' with {
     type: 'info',
     dismissible: true
 } %}
