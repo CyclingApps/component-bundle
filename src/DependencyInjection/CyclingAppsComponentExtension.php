@@ -12,24 +12,10 @@ namespace CyclingApps\ComponentBundle\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class CyclingAppsComponentExtension extends Extension implements PrependExtensionInterface
+class CyclingAppsComponentExtension extends Extension
 {
-    public function prepend(ContainerBuilder $container): void
-    {
-        if (!$this->isTwigComponentAvailable($container)) {
-            return;
-        }
-
-        $container->prependExtensionConfig('twig_component', [
-            'defaults' => [
-                'CyclingApps\ComponentBundle\Twig\Components\\' => 'cyclingapps',
-            ],
-        ]);
-    }
-
     public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
@@ -45,16 +31,5 @@ class CyclingAppsComponentExtension extends Extension implements PrependExtensio
     public function getAlias(): string
     {
         return 'cycling_apps_component';
-    }
-
-    private function isTwigComponentAvailable(ContainerBuilder $container): bool
-    {
-        if (!interface_exists(PrependExtensionInterface::class)) {
-            return false;
-        }
-
-        $bundles = $container->getParameter('kernel.bundles');
-
-        return isset($bundles['TwigComponentBundle']);
     }
 }

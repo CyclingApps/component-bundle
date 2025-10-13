@@ -13,7 +13,7 @@ This bundle provides reusable components and utilities for Symfony applications.
   - [Navbar](docs/Navbar/navbar.md) - Main navigation container with logo, name, and link configuration
   - [Menu](docs/Navbar/menu.md) - Menu container for organizing navigation items
   - [MenuItem](docs/Navbar/menuItem.md) - Individual navigation links or items
-- [Tab](docs/Tab/tab.md) - A Bootstrap nav-tabs/nav-pills component for creating tabbed navigation with content panes
+- [Tab](docs/Navigation/tab.md) - A Bootstrap nav-tabs/nav-pills component for creating tabbed navigation with content panes
 
 For more details, see the [full documentation](docs/index.md).
 

@@ -10,8 +10,8 @@
             {% set isActive = activeTab is not null and activeTab == tab.id %}
             <li class="nav-item">
                 <a class="nav-link{% if isActive %} active{% endif %}" 
-                   {% if tab.link is defined %}href="{{ tab.link }}"{% else %}data-bs-toggle="tab"{% endif %}
-                   {% if tab.id is defined %}id="{{ tab.id }}" data-bs-target="#{{ tab.id }}-pane"{% endif %}
+                   href="{{ tab.link }}"
+                   id="{{ tab.id }}"
                    {% if isActive %}aria-current="page"{% endif %}>
                     {{ tab.label }}
                 </a>
@@ -23,17 +23,13 @@
 {% if tabs is not empty %}
     <div class="tab-content mt-3">
         {% block content %}
-            {% for tab in tabs %}
-                {% set isActive = activeTab is not null and activeTab == tab.id %}
-                <div class="tab-pane fade{% if isActive %} show active{% endif %}" 
-                     {% if tab.id is defined %}id="{{ tab.id }}-pane"{% endif %}
-                     role="tabpanel" 
-                     {% if tab.id is defined %}aria-labelledby="{{ tab.id }}"{% endif %}>
-                    {% if tab.content is defined %}
-                        {{ tab.content|raw }}
-                    {% endif %}
-                </div>
-            {% endfor %}
+            <div class="tab-pane fade show active"
+                 id="{{ activeTab }}-pane"
+                 role="tabpanel">
+                {% if activeContent is defined %}
+                    {{ activeContent|raw }}
+                {% endif %}
+            </div>
         {% endblock %}
     </div>
 {% endif %}

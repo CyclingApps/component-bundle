@@ -7,13 +7,11 @@
  * file that was distributed with this source code.
  */
 
-namespace CyclingApps\ComponentBundle\Twig\Components\Tab;
+namespace CyclingApps\ComponentBundle\Twig\Components\Navigation;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
 
-#[AsTwigComponent('cyclingapps_tab', template: '@CyclingAppsComponent/components/tab/tab.html.twig')]
 class Tab
 {
     /**
@@ -21,6 +19,7 @@ class Tab
      */
     public array $tabs;
     public ?string $activeTab;
+    public ?string $activeContent;
     public string $variant;
     public bool $fill;
     public bool $justified;
@@ -46,6 +45,7 @@ class Tab
         $resolver->setDefaults([
             'tabs' => [],
             'activeTab' => null,
+            'activeContent' => null,
             'variant' => 'tabs',
             'fill' => false,
             'justified' => false,
@@ -54,6 +54,7 @@ class Tab
 
         $resolver->setAllowedTypes('tabs', 'array');
         $resolver->setAllowedTypes('activeTab', ['string', 'null']);
+        $resolver->setAllowedTypes('activeContent', ['string', 'null']);
         $resolver->setAllowedTypes('variant', 'string');
         $resolver->setAllowedTypes('fill', 'bool');
         $resolver->setAllowedTypes('justified', 'bool');

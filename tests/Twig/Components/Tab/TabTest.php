@@ -9,7 +9,7 @@
 
 namespace CyclingApps\ComponentBundle\Tests\Twig\Components\Tab;
 
-use CyclingApps\ComponentBundle\Twig\Components\Tab\Tab;
+use CyclingApps\ComponentBundle\Twig\Components\Navigation\Tab;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
 

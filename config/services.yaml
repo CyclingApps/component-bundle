@@ -41,6 +41,6 @@ services:
       tags:
         - { name: 'twig.component', key: 'CyclingApps:Navigation:MenuItem', template: '@CyclingAppsComponent/navigation/menu_item.html.twig', expose_public_props: true }
 
-    CyclingApps\ComponentBundle\Twig\Components\Tab\Tab:
+    CyclingApps\ComponentBundle\Twig\Components\Navigation\Tab:
       tags:
-        - { name: 'twig.component', key: 'CyclingApps:Tab', template: '@CyclingAppsComponent/tab/tab.html.twig', expose_public_props: true }
+        - { name: 'twig.component', key: 'CyclingApps:Navigation:Tab', template: '@CyclingAppsComponent/navigation/tab.html.twig', expose_public_props: true }
