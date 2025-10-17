@@ -2,16 +2,7 @@
 
 A locale switcher dropdown for Bootstrap navbar.
 
-![LocaleSwitcher](../images/locale-switcher.png)
-
-## Configuration
-
-```yaml
-cycling_apps_component:
-  locale_switcher:
-    locales: ['fr', 'en']
-    show_locale_name: true
-```
+## Parameters
 
 | Parameter          | Type    | Description                                     | Default        |
 |:-------------------|:--------|:------------------------------------------------|:---------------|
@@ -22,14 +13,14 @@ cycling_apps_component:
 ## Usage
 
 ```twig
-{{ component('CyclingApps:LocaleSwitcher') }}
+{{ component('CyclingApps:Navigation:LocaleSwitcher') }}
 ```
 
 ## Example in a Bootstrap navbar
 ```twig
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">CyclingApps</a>
+        <a class="navbar-brand" href="#">Enabel Ux</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,17 +30,17 @@ cycling_apps_component:
                 ...
             </ul>
             <div class="d-flex align-items-end me-3">
-                {{ component('CyclingApps:LocaleSwitcher') }}                
+                {{ component('CyclingApps:Navigation:LocaleSwitcher') }}                
             </div>
         </div>
     </div>
 </nav>
 ```
 
-## Example in a CyclingApps:Navbar with CyclingApps:Menu & CyclingApps:MenuItem components
+## Example in a CyclingApps:Navigation:Navbar with CyclingApps:Navigation:Menu & CyclingApps:Navigation:MenuItem components
 ```twig
 {% component 'CyclingApps:Navigation:Navbar' with {
-    name: 'CyclingApps',
+    name: 'Enabel Ux',
     link: '/'
 } %}
     {% block content %}
@@ -67,7 +58,7 @@ cycling_apps_component:
         {# Right-aligned menu with user dropdown #}
         {% component 'CyclingApps:Navigation:Menu' with { align: 'end' } %}
             {% block content %}
-                {{ component('CyclingApps:LocaleSwitcher', {
+                {{ component('CyclingApps:Navigation:LocaleSwitcher', {
                     'locales': ['fr', 'en', 'es']
                 }) }}
                 Other menu items...

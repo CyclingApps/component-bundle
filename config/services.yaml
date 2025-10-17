@@ -12,14 +12,6 @@ services:
         resource: '../src/Twig/Components/*'
         public: true
 
-    CyclingApps\ComponentBundle\Twig\Components\LocaleSwitcher\LocaleSwitcher:
-        arguments:
-            $locales: '%cycling_apps_component.locale_switcher.locales%'
-            $showLocaleName: '%cycling_apps_component.locale_switcher.show_locale_name%'
-        tags:
-          - { name: 'twig.component', key: 'CyclingApps:LocaleSwitcher', template: '@CyclingAppsComponent/locale_switcher/locale_switcher.html.twig', expose_public_props: true }
-
-
     CyclingApps\ComponentBundle\Twig\Components\Alert\Alert:
       tags:
         - { name: 'twig.component', key: 'CyclingApps:Alert', template: '@CyclingAppsComponent/alert/alert.html.twig', expose_public_props: true }
@@ -27,6 +19,10 @@ services:
     CyclingApps\ComponentBundle\Twig\Components\Card\Card:
       tags:
         - { name: 'twig.component', key: 'CyclingApps:Card', template: '@CyclingAppsComponent/card/card.html.twig', expose_public_props: true }
+
+    CyclingApps\ComponentBundle\Twig\Components\Navigation\LocaleSwitcher:
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Navigation:LocaleSwitcher', template: '@CyclingAppsComponent/navigation/locale_switcher.html.twig', expose_public_props: true }
 
     CyclingApps\ComponentBundle\Twig\Components\Navigation\Navbar:
       tags:
