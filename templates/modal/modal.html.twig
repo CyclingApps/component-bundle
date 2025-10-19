@@ -1,0 +1,3 @@
+<div class="modal" {{ attributes.defaults(stimulus_controller('cyclingapps/component/modal')) }}{% if app.request.attributes.has('_cyclingapps_component_modal') %} data-modal-background-uri="{{ app.request.attributes.get('_cyclingapps_component_modal').backgroundUri }}"{% endif %}>
+    {% if app.request.attributes.has('_cyclingapps_component_modal') %}{{ app.request.attributes.get('_cyclingapps_component_modal').content | raw }}{% endif %}
+</div>

@@ -1,0 +1,21 @@
+{
+    "name": "@cyclingapps/component",
+    "version": "1.0.0",
+    "symfony": {
+        "controllers": {
+            "modal": {
+                "main": "dist/modal.js",
+                "fetch": "eager",
+                "enabled": true
+            }
+        },
+        "importmap": {
+            "@hotwired/stimulus": "^3.0.0",
+            "bootstrap": "^5.3"
+        }
+    },
+    "peerDependencies": {
+        "@hotwired/stimulus": "^3.0.0",
+        "bootstrap": "^5.3"
+    }
+}

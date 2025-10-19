@@ -20,6 +20,16 @@ services:
       tags:
         - { name: 'twig.component', key: 'CyclingApps:Card', template: '@CyclingAppsComponent/card/card.html.twig', expose_public_props: true }
 
+    CyclingApps\ComponentBundle\Twig\Components\Modal\Modal:
+        tags:
+          - { name: 'twig.component', key: 'CyclingApps:Modal', template: '@CyclingAppsComponent/modal/modal.html.twig' }
+
+    CyclingApps\ComponentBundle\Twig\Components\Modal\ModalHelper:
+        arguments:
+          - '@request_stack'
+          - '@http_kernel'
+          - '@twig'
+
     CyclingApps\ComponentBundle\Twig\Components\Navigation\LocaleSwitcher:
       tags:
         - { name: 'twig.component', key: 'CyclingApps:Navigation:LocaleSwitcher', template: '@CyclingAppsComponent/navigation/locale_switcher.html.twig', expose_public_props: true }
