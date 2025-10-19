@@ -3,6 +3,9 @@
   "description": "This bundle provides reusable components and utilities for Symfony applications.",
   "license": "MIT",
   "type": "symfony-bundle",
+  "keywords": [
+    "symfony-ux"
+  ],
   "authors": [
     {
       "name": "Damien LAGAE",
