@@ -9,15 +9,21 @@
 
 namespace CyclingApps\ComponentBundle;
 
-use CyclingApps\ComponentBundle\DependencyInjection\CyclingAppsComponentExtension;
 use Symfony\Component\AssetMapper\AssetMapperInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class CyclingAppsComponentBundle extends AbstractBundle
 {
+    /**
+     * @param array<string, mixed> $config
+     */
+    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+    {
+        $container->import('../config/services.yaml');
+    }
+
     public function getPath(): string
     {
         return \dirname(__DIR__);
@@ -46,10 +52,5 @@ class CyclingAppsComponentBundle extends AbstractBundle
                 ],
             ],
         ]);
-    }
-
-    public function getContainerExtension(): ?ExtensionInterface
-    {
-        return new CyclingAppsComponentExtension();
     }
 }

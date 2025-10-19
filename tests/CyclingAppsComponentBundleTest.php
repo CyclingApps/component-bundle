@@ -10,7 +10,6 @@
 namespace CyclingApps\ComponentBundle«\Tests;
 
 use CyclingApps\ComponentBundle\CyclingAppsComponentBundle;
-use CyclingApps\ComponentBundle\DependencyInjection\CyclingAppsComponentExtension;
 use PHPUnit\Framework\TestCase;
 
 class CyclingAppsComponentBundleTest extends TestCase
@@ -39,14 +38,5 @@ class CyclingAppsComponentBundleTest extends TestCase
         $reflection = new \ReflectionClass($bundle);
         $this->assertEquals('CyclingAppsComponentBundle', $reflection->getShortName());
         $this->assertEquals('CyclingApps\ComponentBundle', $reflection->getNamespaceName());
-    }
-
-    public function testGetContainerExtension(): void
-    {
-        $bundle = new CyclingAppsComponentBundle();
-        $extension = $bundle->getContainerExtension();
-
-        $this->assertInstanceOf(CyclingAppsComponentExtension::class, $extension);
-        $this->assertEquals('cycling_apps_component', $extension->getAlias());
     }
 }
