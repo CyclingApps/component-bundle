@@ -50,9 +50,15 @@ The Twig template for the modal should just render the content of the modal, wit
 Optionally, you can specify one of the alternative sizes (sm, lg, xl) by adding the corresponding class to the .modal-content element.
 
 ```twig
-<div class="modal-content modal-xl">
-    <div class=modal-body>
-        ...
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class=modal-body>
+            ...
+        </div>
     </div>
 </div>
 ```

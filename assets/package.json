@@ -1,20 +1,26 @@
 {
-    "name": "@cyclingapps/component-bundle",
-    "version": "1.0.0",
-    "symfony": {
-        "controllers": {
-            "modal": {
-                "main": "dist/modal.js",
-                "fetch": "eager",
-                "enabled": true
-            }
-        },
-        "importmap": {
-            "@hotwired/stimulus": "^3.0.0"
-        }
+  "name": "@cyclingapps/component",
+  "version": "1.0.0",
+  "keywords": [
+    "symfony-ux"
+  ],
+  "symfony": {
+    "controllers": {
+      "modal": {
+        "main": "dist/modal.js",
+        "fetch": "eager",
+        "enabled": true
+      }
     },
-    "peerDependencies": {
-        "@hotwired/stimulus": "^3.0.0",
-        "bootstrap": "^5.3.8"
+    "importmap": {
+      "@hotwired/stimulus": "^3.0.0",
+      "@popperjs/core": "^2.11.8",
+      "bootstrap": "^5.3.8"
     }
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3.0.0",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8"
+  }
 }

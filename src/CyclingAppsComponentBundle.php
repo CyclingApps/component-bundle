@@ -29,28 +29,32 @@ class CyclingAppsComponentBundle extends AbstractBundle
         return \dirname(__DIR__);
     }
 
-    public function prependExtension(ContainerConfigurator $container, ContainerBuilder $builder): void
+    public function prependExtension(ContainerConfigurator $configurator, ContainerBuilder $container): void
     {
-        if (!interface_exists(AssetMapperInterface::class)) {
+        if (!$this->isAssetMapperAvailable($container)) {
             return;
         }
 
-        $metadata = $builder->getParameter('kernel.bundles_metadata');
-
-        if (!\is_array($metadata) || !isset($metadata['FrameworkBundle'])) {
-            return;
-        }
-
-        if (!is_file($metadata['FrameworkBundle']['path'].'/Resources/config/asset_mapper.php')) {
-            return;
-        }
-
-        $builder->prependExtensionConfig('framework', [
+        $container->prependExtensionConfig('framework', [
             'asset_mapper' => [
                 'paths' => [
-                    __DIR__.'/../assets/dist',
+                    __DIR__ . '/../assets/dist' => '@cyclingapps/component-bundle',
                 ],
             ],
         ]);
+    }
+
+    private function isAssetMapperAvailable(ContainerBuilder $container): bool
+    {
+        if (!interface_exists(AssetMapperInterface::class)) {
+            return false;
+        }
+
+        $bundlesMetadata = $container->getParameter('kernel.bundles_metadata');
+        if (!isset($bundlesMetadata['FrameworkBundle'])) {
+            return false;
+        }
+
+        return is_file($bundlesMetadata['FrameworkBundle']['path'] . '/Resources/config/asset_mapper.php');
     }
 }
