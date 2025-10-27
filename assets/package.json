@@ -12,14 +12,14 @@
         "enabled": true
       },
       "callout": {
-        "main": "dist/callout.css",
+        "main": "dist/callout.js",
         "enabled": true,
         "autoimport": {
           "@cyclingapps/component-bundle/dist/callout.css": true
         }
       },
       "widget": {
-        "main": "dist/widget.css",
+        "main": "dist/widget.js",
         "enabled": true,
         "autoimport": {
           "@cyclingapps/component-bundle/dist/widget.css": true
