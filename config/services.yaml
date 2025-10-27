@@ -20,6 +20,10 @@ services:
       tags:
         - { name: 'twig.component', key: 'CyclingApps:Card', template: '@CyclingAppsComponent/card/card.html.twig', expose_public_props: true }
 
+    CyclingApps\ComponentBundle\Twig\Components\Callout\Callout:
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Callout', template: '@CyclingAppsComponent/callout/callout.html.twig', expose_public_props: true }
+
     CyclingApps\ComponentBundle\Twig\Components\Modal\Modal:
         tags:
           - { name: 'twig.component', key: 'CyclingApps:Modal', template: '@CyclingAppsComponent/modal/modal.html.twig' }
@@ -50,3 +54,7 @@ services:
     CyclingApps\ComponentBundle\Twig\Components\Navigation\Tab:
       tags:
         - { name: 'twig.component', key: 'CyclingApps:Navigation:Tab', template: '@CyclingAppsComponent/navigation/tab.html.twig', expose_public_props: true }
+
+    CyclingApps\ComponentBundle\Twig\Components\Widget\Widget:
+      tags:
+        - { name: 'twig.component', key: 'CyclingApps:Widget', template: '@CyclingAppsComponent/widget/widget.html.twig', expose_public_props: true }

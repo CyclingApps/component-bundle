@@ -10,6 +10,20 @@
         "main": "dist/modal.js",
         "fetch": "eager",
         "enabled": true
+      },
+      "callout": {
+        "main": "dist/callout.css",
+        "enabled": true,
+        "autoimport": {
+          "@cyclingapps/component-bundle/dist/callout.css": true
+        }
+      },
+      "widget": {
+        "main": "dist/widget.css",
+        "enabled": true,
+        "autoimport": {
+          "@cyclingapps/component-bundle/dist/widget.css": true
+        }
       }
     },
     "importmap": {
