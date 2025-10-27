@@ -1,5 +1,12 @@
 {
   "require": {
-    "phpstan/phpstan": "^1"
+    "ekino/phpstan-banned-code": "^3.0",
+    "phpstan/extension-installer": "^1.4",
+    "phpstan/phpstan": "^2"
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
   }
 }

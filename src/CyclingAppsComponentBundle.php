@@ -38,7 +38,7 @@ class CyclingAppsComponentBundle extends AbstractBundle
         $container->prependExtensionConfig('framework', [
             'asset_mapper' => [
                 'paths' => [
-                    __DIR__ . '/../assets/dist' => '@cyclingapps/component-bundle',
+                    __DIR__.'/../assets/dist' => '@cyclingapps/component-bundle',
                 ],
             ],
         ]);
@@ -50,11 +50,12 @@ class CyclingAppsComponentBundle extends AbstractBundle
             return false;
         }
 
+        /** @var array<string, mixed> $bundlesMetadata */
         $bundlesMetadata = $container->getParameter('kernel.bundles_metadata');
         if (!isset($bundlesMetadata['FrameworkBundle'])) {
             return false;
         }
 
-        return is_file($bundlesMetadata['FrameworkBundle']['path'] . '/Resources/config/asset_mapper.php');
+        return is_file($bundlesMetadata['FrameworkBundle']['path'].'/Resources/config/asset_mapper.php');
     }
 }
